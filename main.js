@@ -92,6 +92,8 @@ function drawCard(){
         player1.deck.cards.shift()
         player1.deck.cards.push(topCard1, topCard2)
         player2.deck.cards.shift()
+        player1.cardCount = player1.deck.cards.length;
+        player2.cardCount = player2.deck.cards.length;
         // update card count inside if statement
         console.log('Player 1 wins')
 
@@ -99,6 +101,8 @@ function drawCard(){
         player2.deck.cards.shift()
         player2.deck.cards.push(topCard1, topCard2)
         player1.deck.cards.shift()
+        player2.cardCount = player2.deck.cards.length;
+        player1.cardCount = player1.deck.cards.length;
         console.log('Player 2 wins')
 
     } else if(parseInt(topCard1.value) === parseInt(topCard2.value)){
@@ -117,6 +121,8 @@ function drawCard(){
             console.log({winningCards})
             player1.deck.cards.push(...winningCards)
             console.log({player1})
+            player1.cardCount = player1.deck.cards.length;
+            player2.cardCount = player2.deck.cards.length;
             console.log('player 1 wins the war')
         } else if (parseInt(p2FourthCard.value) > parseInt(p1FourthCard.value)) {
             player2.deck.cards.shift()
@@ -127,6 +133,10 @@ function drawCard(){
             console.log({player2})
             player2.deck.cards.push(...winningCards)
             console.log({player2})
+            player2.cardCount = player2.deck.cards.length;
+            player1.cardCount = player1.deck.cards.length;
+        
+
             console.log('player2 wins the war')
         }
     }

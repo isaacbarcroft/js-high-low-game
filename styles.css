@@ -19,8 +19,10 @@ h3 {
 }
 
 .space{
-    display: flex;
-    flex-direction:row;
+        column-count: 3;
+        column-gap: 40px;
+
+            
 }
 .player2_side{   
     align-self: right;
