@@ -79,17 +79,22 @@ button {
     margin: 0 auto;
 }
 .start {
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
 }
 .draw {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 }
 .description {
-    position: relative;
-    width: 400px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+
+    width: 200px;
     height: 200px;
     background-color: thistle;
-    margin-left: 180px;
+    margin-left: 110px;
 }

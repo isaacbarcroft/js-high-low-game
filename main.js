@@ -114,7 +114,7 @@ function drawCard(){
         player2CardCount.innerText = `Cards Remaining: ${player2.deck.cards.length}`
         player2names.innerText = `Player 2 Wins!`
         player1names.innerText = `Player 1`;
-
+        description.innerText = `Player 1 drew ${topCard1.value} of ${topCard1.suit} & Player 2 drew ${topCard2.value} of ${topCard2.suit}`;
     } else if(parseInt(topCard1.value) === parseInt(topCard2.value)){
         // get first 3 cards
         let p1FourthCard = player1.deck.cards[3]
@@ -138,6 +138,7 @@ function drawCard(){
             player2CardCount.innerText = `Cards Remaining: ${player2.deck.cards.length}`
             player1names.innerText = `Player 1 Wins!`;
             player2names.innerText = `Player 2`
+            description.innerText = `Player 1 drew ${topCard1.value} of ${topCard1.suit} & Player 2 drew ${topCard2.value} of ${topCard2.suit}`;
         } else if (parseInt(p2FourthCard.value) > parseInt(p1FourthCard.value)) {
             player2.deck.cards.shift()
             player2.deck.cards.push(topCard1, topCard2, p1FourthCard, p2FourthCard)
@@ -153,14 +154,17 @@ function drawCard(){
             player2CardCount.innerText = `Cards Remaining: ${player2.deck.cards.length}`
             player2names.innerText = `Player 2 Wins!`
             player1names.innerText = `Player 1`;
+            description.innerText = `Player 1 drew ${topCard1.value} of ${topCard1.suit} & Player 2 drew ${topCard2.value} of ${topCard2.suit}`;
         
 
             console.log('player2 wins the war')
         }
     } else if (player1.deck.cards.length === 0 || player2.deck.cards.length === 0 ){
         if(player1.deck.cards.length === 0 ){
+            description.innerText = `Player 1 is out of cards ! Player 2 WINS!`;
             console.log('player2 wins');
         } else {
+            `Player 2 is out of cards ! Player 1 WINS!`
             console.log("player1 wins");
         }
     }
