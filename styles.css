@@ -1,13 +1,23 @@
 .player1 {
     font-size: larger;
-    text-align: left;
+    text-align: center;
     padding: 10%;
 }
 
 .player2 {
     font-size: larger;
-    text-align: right;
+    text-align: center;
     padding: 10%;
+}
+/* .new_game {
+    margin: auto;
+}
+.draw{
+    margin: 0 auto;
+} */
+
+body {
+    position: relative;;
 }
 
 h1 {
@@ -18,16 +28,68 @@ h3 {
     text-align: center;
 }
 
-.space{
-        column-count: 3;
-        column-gap: 40px;
-
-            
+.space {
+    position: relative;
 }
+            
+
 .player2_side{   
-    align-self: right;
-    right: 150px;
+       /* text-align: right; */
+    /* right: 150px; */
+    position: relative;
+    width: 150px;   
+    height: 200px;
+    background-color:lightsteelblue ;
+    margin-left: 500px;
+    border: 1px solid gray;;
 }
 .player1_side{
+position: relative;
+width: 150px;   
+height: 200px;
+margin-left: 20px;
+background-color:silver;
+border: 1px solid gray;;
+}
+div {
+    display: flex;
+}
+/* 
+.draw {
+    text-align: center;
+} */
+.p2-card-count {
+    width: 150px;
+    height: 50px;
+    position: relative;
+    margin-left: 100px;
+    border: 1px solid gray;;
+    background-color: darksalmon;
+}
+.p1-card-count {
+    /* position: relative; */
+    width: 150px;
+    height: 50px;
+    margin-left: 100px;
+    border: 1px solid gray;;
+    background-color: darksalmon;
+}
 
+button {
+    margin: 0 auto;
+}
+.start {
+    display: flex;
+    justify-content: center;
+}
+.draw {
+    display: flex;
+    justify-content: center;
+}
+.description {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background-color: thistle;
+    margin-left: 180px;
 }

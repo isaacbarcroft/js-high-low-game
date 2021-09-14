@@ -16,12 +16,13 @@ let player1 = new Player({name: player1name, cardCount: player1deck.cards.length
 let player2 = new Player({name: player2name, cardCount: player2deck.cards.length, deck: player2deck});
 
 // DOM
-
+let player1CardCount = document.querySelector('.p1-card-count');
+let player2CardCount = document.querySelector('.p2-card-count');
 let draw = document.querySelector('.draw');
 let newGame = document.querySelector('.new_game');
 let player1names = document.querySelector('.player1');
 let player2names = document.querySelector('.player2');
-
+let description = document.querySelector('.description');
 /// Constructors 
 
 function Player({cardCount = 0, name = `Player`, deck}){
@@ -96,6 +97,11 @@ function drawCard(){
         player2.cardCount = player2.deck.cards.length;
         // update card count inside if statement
         console.log('Player 1 wins')
+        player1CardCount.innerText = `Cards Remaining: ${player1.deck.cards.length}`
+        player2CardCount.innerText = `Cards Remaining: ${player2.deck.cards.length}`
+        player1names.innerText = `Player 1 Wins!`;
+        player2names.innerText = `Player 2`
+        description.innerText = `Player 1 drew ${topCard1.value} of ${topCard1.suit} & Player 2 drew ${topCard2.value} of ${topCard2.suit}`;
 
     } else if(parseInt(topCard2.value) > parseInt(topCard1.value)) {
         player2.deck.cards.shift()
@@ -104,6 +110,10 @@ function drawCard(){
         player2.cardCount = player2.deck.cards.length;
         player1.cardCount = player1.deck.cards.length;
         console.log('Player 2 wins')
+        player1CardCount.innerText = `Cards Remaining: ${player1.deck.cards.length}`
+        player2CardCount.innerText = `Cards Remaining: ${player2.deck.cards.length}`
+        player2names.innerText = `Player 2 Wins!`
+        player1names.innerText = `Player 1`;
 
     } else if(parseInt(topCard1.value) === parseInt(topCard2.value)){
         // get first 3 cards
@@ -124,6 +134,10 @@ function drawCard(){
             player1.cardCount = player1.deck.cards.length;
             player2.cardCount = player2.deck.cards.length;
             console.log('player 1 wins the war')
+            player1CardCount.innerText = `Cards Remaining: ${player1.deck.cards.length}`
+            player2CardCount.innerText = `Cards Remaining: ${player2.deck.cards.length}`
+            player1names.innerText = `Player 1 Wins!`;
+            player2names.innerText = `Player 2`
         } else if (parseInt(p2FourthCard.value) > parseInt(p1FourthCard.value)) {
             player2.deck.cards.shift()
             player2.deck.cards.push(topCard1, topCard2, p1FourthCard, p2FourthCard)
@@ -135,9 +149,19 @@ function drawCard(){
             console.log({player2})
             player2.cardCount = player2.deck.cards.length;
             player1.cardCount = player1.deck.cards.length;
+            player1CardCount.innerText = `Cards Remaining: ${player1.deck.cards.length}`
+            player2CardCount.innerText = `Cards Remaining: ${player2.deck.cards.length}`
+            player2names.innerText = `Player 2 Wins!`
+            player1names.innerText = `Player 1`;
         
 
             console.log('player2 wins the war')
+        }
+    } else if (player1.deck.cards.length === 0 || player2.deck.cards.length === 0 ){
+        if(player1.deck.cards.length === 0 ){
+            console.log('player2 wins');
+        } else {
+            console.log("player1 wins");
         }
     }
 }
@@ -150,8 +174,8 @@ draw.addEventListener('click', function(){
     drawCard();
 })
 newGame.addEventListener('click', function(){
-    Game();
+    location.reload()
 })
 
-player1name = prompt(`Player One Name`);
-player2name = prompt(`Player Two Name`);
+// player1name = prompt(`Player One Name`);
+// player2name = prompt(`Player Two Name`);
