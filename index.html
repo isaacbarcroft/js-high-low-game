@@ -8,13 +8,28 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <h1> High-Low Game </h1>
+        <h3>(WAR)</h3>
+    </header>
 
-<button class = 'new_game'>Start New Game</button>
+    <button class = 'new_game'>Start New Game</button>
+
+    <div class = "space" style = 'flex-direction: row;'>
+        <section class= "player1_side">
+            <div class ="player1">Player One</div>
+            <div class = "p1-card-count"> Card Count</div>
+        </section>
+            <div type="text" class="info"> </div>
+        <section class ="player2_side">
+            <div class = "player2">Player Two</div>
+            <div class = "p2-card-count">Card Count</div>
+        </section>
+    </div>
+
 <button class = 'draw'>DRAW</button>
-<div class= 'player1'>Player One </div>
-<div class= 'player2'>Player Two </div>
 
-<div class= 'cards'> </div>
+<div class= 'cards'>Cards </div>
     
     <script src="main.js"></script>
 </body>

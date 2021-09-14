@@ -1,14 +1,31 @@
 .player1 {
     font-size: larger;
-    /* position: relative; */
-    justify-content: left;
     text-align: left;
     padding: 10%;
 }
 
 .player2 {
     font-size: larger;
-    justify-content: right;
     text-align: right;
     padding: 10%;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+.space{
+    display: flex;
+    flex-direction:row;
+}
+.player2_side{   
+    align-self: right;
+    right: 150px;
+}
+.player1_side{
+
 }
