@@ -48,8 +48,8 @@ function Game(){
     
 };
 
-console.log(deck1);
-console.log(deck2);
+console.log('deck1',deck1);
+console.log('deck2',deck2);
 
 
 
@@ -87,8 +87,8 @@ function drawCard(){
          
     let topCard1 = player1.deck.cards[0];
     let topCard2 = player2.deck.cards[0];
-    console.log(topCard1);
-    console.log(topCard2);
+    console.log('topcard1',topCard1);
+    console.log('topcard2',topCard2);
     if(parseInt(topCard1.value) > parseInt(topCard2.value)) {
         player1.deck.cards.shift()
         player1.deck.cards.push(topCard1, topCard2)
@@ -115,22 +115,25 @@ function drawCard(){
         player2names.innerText = `Player 2 Wins!`
         player1names.innerText = `Player 1`;
         description.innerText = `Player 1 drew ${topCard1.value} of ${topCard1.suit} & Player 2 drew ${topCard2.value} of ${topCard2.suit}`;
+        console.log('player2',{player2})
+        console.log('player1',player1);
     } else if(parseInt(topCard1.value) === parseInt(topCard2.value)){
         // get first 3 cards
         let p1FourthCard = player1.deck.cards[3]
         let p2FourthCard = player2.deck.cards[3]
         
-        console.log({p1FourthCard})
-        console.log({p2FourthCard})
+        console.log('ply14',{p1FourthCard})
+        console.log('play24',{p2FourthCard})
         
         if(parseInt(p1FourthCard.value) > parseInt(p2FourthCard.value)) {
             player1.deck.cards.shift()
-            player1.deck.cards.push(topCard1, topCard2, p1FourthCard, p2FourthCard)
+            player1.deck.cards.push(topCard1, topCard2)
             player2.deck.cards.shift()
-            const winningCards = player2.deck.cards.slice(1,3);
-            console.log({winningCards})
+            const winningCards = player2.deck.cards.splice(0,3);
+            console.log('winning cards',{winningCards})
             player1.deck.cards.push(...winningCards)
-            console.log({player1})
+            console.log('ply14',{p1FourthCard})
+            console.log('ply24',{p2FourthCard})
             player1.cardCount = player1.deck.cards.length;
             player2.cardCount = player2.deck.cards.length;
             console.log('player 1 wins the war')
@@ -138,16 +141,23 @@ function drawCard(){
             player2CardCount.innerText = `Cards Remaining: ${player2.deck.cards.length}`
             player1names.innerText = `Player 1 Wins!`;
             player2names.innerText = `Player 2`
+            console.log('player 1 wins war');
+            console.log('player2',{player2});
+            console.log('player1',{player1});
             description.innerText = `Player 1 drew ${topCard1.value} of ${topCard1.suit} & Player 2 drew ${topCard2.value} of ${topCard2.suit}`;
         } else if (parseInt(p2FourthCard.value) > parseInt(p1FourthCard.value)) {
             player2.deck.cards.shift()
-            player2.deck.cards.push(topCard1, topCard2, p1FourthCard, p2FourthCard)
-            player2.deck.cards.shift()
-            const winningCards = player1.deck.cards.slice(1,3);
-            console.log({winningCards})
-            console.log({player2})
+            player2.deck.cards.push(topCard1, topCard2)
+            player1.deck.cards.shift()
+            const winningCards = player1.deck.cards.splice(0,3);
+            console.log('winningcards',{winningCards})
+            console.log('player2',{player2})
+            console.log('player1',player1);
             player2.deck.cards.push(...winningCards)
-            console.log({player2})
+        
+            console.log('player2',{player2});
+            console.log('player1',{player1});
+
             player2.cardCount = player2.deck.cards.length;
             player1.cardCount = player1.deck.cards.length;
             player1CardCount.innerText = `Cards Remaining: ${player1.deck.cards.length}`
